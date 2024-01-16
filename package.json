@@ -1,0 +1,76 @@
+{
+  "name": "ionic-native",
+  "version": "4.20.0",
+  "description": "Native plugin wrappers for Cordova and Ionic with TypeScript, ES6+, Promise and Observable support",
+  "homepage": "https://ionicframework.com/",
+  "author": "Ionic Team <hi@ionic.io> (https://ionic.io)",
+  "license": "MIT",
+  "devDependencies": {
+    "@angular/compiler": "^5.2.11",
+    "@angular/compiler-cli": "^5.2.11",
+    "@angular/core": "^5.2.11",
+    "@types/cordova": "0.0.34",
+    "@types/jasmine": "2.8.9",
+    "@types/node": "8.10.20",
+    "child-process-promise": "2.2.1",
+    "conventional-changelog-cli": "^2.0.11",
+    "cz-conventional-changelog": "^2.1.0",
+    "dgeni": "^0.4.11",
+    "dgeni-packages": "0.16.10",
+    "fs-extra": "^7.0.1",
+    "gulp": "3.9.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-tslint": "^8.1.3",
+    "jasmine-core": "2.99.1",
+    "karma": "^2.0.5",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-typescript": "^3.0.13",
+    "karma-typescript-es6-transform": "^1.0.4",
+    "lodash": "^4.17.11",
+    "minimist": "1.2.0",
+    "node-html-encoder": "0.0.2",
+    "q": "^1.5.1",
+    "queue": "^4.5.1",
+    "rimraf": "^2.6.3",
+    "rxjs": "^5.5.12",
+    "semver": "^5.6.0",
+    "tslint": "^5.12.1",
+    "tslint-ionic-rules": "0.0.21",
+    "typescript": "~2.4.2",
+    "zone.js": "^0.8.28"
+  },
+  "scripts": {
+    "start": "npm run test:watch",
+    "lint": "gulp lint",
+    "build": "npm run clean && npm run lint && npm run build:core && npm run build:modules",
+    "build:core": "ngc -p ./scripts/build/tsconfig-core.json",
+    "build:modules": "node ./scripts/build/build.js",
+    "clean": "rimraf dist .tmp",
+    "shipit": "npm run build && gulp readmes && npm run npmpub",
+    "npmpub": "node scripts/build/publish.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "postchangelog": "git commit -am \"chore(): update changelog\"",
+    "test": "karma start karma.conf.js --single-run",
+    "test:watch": "karma start karma.conf.js",
+    "readmes": "gulp readmes",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/ionic-native.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/ionic-native/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.11"
+  }
+}

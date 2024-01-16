@@ -1,0 +1,13 @@
+{
+  "extends": ["tslint-ionic-rules"],
+  "rules": {
+    "no-empty": false,
+    "no-import-side-effect": false,
+    "no-redundant-jsdoc": false,
+    "ban-types": false,
+    "no-shadowed-variable": false,
+    "no-constant-condition": false,
+    "no-extra-boolean-cast": false,
+    "linebreak-style": false
+  }
+}
